@@ -118,11 +118,14 @@ const AuthForm = () => {
           </div>
         </div>
 
-        <div className="flex justify-center gap-2 px-2 mt-6 text-sm text-gray-500">
+        <div className="flex justify-center gap-2 px-2 mt-6 text-xs text-gray-500">
           <div>
             {variant === "LOGIN" ? "New to messenger?" : "Have an account?"}
           </div>
-          <div onClick={toggleVariant} className="underline cursor-pointer">
+          <div
+            onClick={toggleVariant}
+            className="underline cursor-pointer hover:text-coklat"
+          >
             {variant === "LOGIN" ? "Create an account" : "Login"}
           </div>
         </div>

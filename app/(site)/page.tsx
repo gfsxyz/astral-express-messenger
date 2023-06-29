@@ -12,7 +12,7 @@ export default function Home() {
           height={64}
           className="w-auto mx-auto"
         />
-        <h2 className="mt-6 text-2xl font-semibold tracking-tight text-center text-gray-900">
+        <h2 className="mt-6 text-2xl font-semibold tracking-tight text-center text-coklat">
           Stay connected with us
         </h2>
       </div>
