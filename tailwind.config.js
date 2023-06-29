@@ -10,9 +10,14 @@ module.exports = {
       colors: {
         abu: "#D6D6D8",
         hitam: "#222020",
+        coklat: "#3C2525",
         primary: "#D3B88A",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/forms")({
+      strategy: "class",
+    }),
+  ],
 };
