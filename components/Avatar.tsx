@@ -11,7 +11,7 @@ const Avatar: React.FC<AvatarProps> = ({ user }) => {
   const userImage = user?.image || "/images/default-pfp.png";
   return (
     <div className="relative">
-      <div className="relative inline-block overflow-hidden rounded-full h-9 w-9 md:h-11 md:w-11">
+      <div className="relative overflow-hidden rounded-full h-9 w-9 md:h-11 md:w-11">
         <Image
           src={userImage}
           alt="profile picture"
