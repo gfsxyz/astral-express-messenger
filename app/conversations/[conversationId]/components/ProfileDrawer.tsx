@@ -5,8 +5,9 @@ import useOtherUser from "@/hooks/useOtherUser";
 import { Transition, Dialog } from "@headlessui/react";
 import { Conversation, User } from "@prisma/client";
 import { format } from "date-fns";
-import { Fragment, useMemo } from "react";
+import { Fragment, useMemo, useState } from "react";
 import { IoClose, IoTrash } from "react-icons/io5";
+import ConfirmModal from "./ConfirmModal";
 
 interface ProfileDrawerProps {
   isOpen: boolean;
@@ -21,6 +22,10 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
   onClose,
 }) => {
   const otherUser = useOtherUser(data);
+  const [confirmOpen, setConfirmOpen] = useState(false);
+
+  console.log(`confirm open: ${confirmOpen}`);
+  console.log(`isOpen: ${isOpen}`);
 
   const joinedDate = useMemo(() => {
     return format(new Date(otherUser.cratedAt), "PP");
@@ -37,14 +42,22 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
 
     return "Online";
   }, [data]);
+
   return (
     <>
       <Transition.Root show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-50" onClose={onClose}>
+        <Dialog as="div" className="relative z-40" onClose={onClose}>
+          <ConfirmModal
+            isOpen={confirmOpen}
+            onClose={() => {
+              setConfirmOpen(false);
+            }}
+          />
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-500"
             enterFrom="opacity-0"
+            enterTo="opacity-100"
             leave="ease-in duration-500"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
@@ -61,6 +74,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                   enterFrom="translate-x-full"
                   enterTo="translate-x-0"
                   leave="transform transition ease-in-out duration-500"
+                  leaveFrom="translate-x-0"
                   leaveTo="translate-x-full"
                 >
                   <Dialog.Panel className="w-screen max-w-md pointer-events-auto">
@@ -69,12 +83,12 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                         <div className="flex items-start justify-end">
                           <div className="flex items-center ml-3 h-7">
                             <button
-                              onClick={onClose}
                               type="button"
-                              className="text-gray-400 bg-white rounded-md hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-coklat focus:ring-offset-2"
+                              className="text-gray-400 bg-white rounded-md hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                              onClick={onClose}
                             >
                               <span className="sr-only">Close panel</span>
-                              <IoClose size={24} />
+                              <IoClose size={24} aria-hidden="true" />
                             </button>
                           </div>
                         </div>
@@ -90,7 +104,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                           </div>
                           <div className="flex gap-10 my-8">
                             <div
-                              onClick={() => {}}
+                              onClick={() => setConfirmOpen(true)}
                               className="flex flex-col gap-3 cursor-pointer intems-center hover:opacity-75"
                             >
                               <div className="flex items-center justify-center w-10 h-10 rounded-full bg-neutral-100">
