@@ -9,6 +9,7 @@ import { useSession } from "next-auth/react";
 import { twMerge } from "tailwind-merge";
 import useOtherUser from "@/hooks/useOtherUser";
 import Avatar from "@/components/Avatar";
+import AvatarGroup from "@/components/AvatarGroup";
 
 interface ConversationBoxProps {
   data: FullConversationType;
@@ -62,11 +63,15 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
         selected ? "bg-neutral-100" : "bg-white"
       )}
     >
-      <Avatar user={otherUser} />
+      {data.isGroup ? (
+        <AvatarGroup users={data.users} />
+      ) : (
+        <Avatar user={otherUser} />
+      )}
       <div className="flex-1 min-w-0">
         <div className="focus:outline-none">
           <div className="flex items-center justify-between mb-1">
-            <p className="text-sm font-semibold text-coklat">
+            <p className="text-sm font-semibold truncate text-coklat max-w-[140px]">
               {data.name || otherUser.name}
             </p>
             {lastMessage?.createdAt && (

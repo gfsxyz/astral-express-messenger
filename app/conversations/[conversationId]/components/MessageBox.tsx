@@ -5,7 +5,9 @@ import { FullMessageType } from "@/types";
 import { format } from "date-fns";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
+import { useState } from "react";
 import { twMerge } from "tailwind-merge";
+import ImageModal from "./ImageModal";
 
 interface MessageBoxProps {
   isLast?: boolean;
@@ -13,6 +15,7 @@ interface MessageBoxProps {
 }
 const MessageBox: React.FC<MessageBoxProps> = ({ isLast, data }) => {
   const session = useSession();
+  const [imageModalOpen, setImageModalOpen] = useState(false);
 
   const isOwn = session?.data?.user?.email === data?.sender?.email;
   const seenList = (data.seen || [])
@@ -49,8 +52,14 @@ const MessageBox: React.FC<MessageBoxProps> = ({ isLast, data }) => {
           </div>
         </div>
         <div className={message}>
+          <ImageModal
+            src={data.image}
+            isOpen={imageModalOpen}
+            onClose={() => setImageModalOpen(false)}
+          />
           {data.image ? (
             <Image
+              onClick={() => setImageModalOpen(true)}
               alt="image"
               height={288}
               width={288}
