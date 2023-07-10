@@ -31,7 +31,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
     const messages = data.messages || [];
 
     return messages[messages.length - 1];
-  }, []);
+  }, [data.messages]);
 
   const userEmail = useMemo(() => {
     return session?.data?.user?.email;
