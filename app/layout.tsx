@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 
 import AuthProvider from "@/providers/AuthProvider";
 import ToasterProvider from "@/providers/ToasterProvider";
+import ActiveStatus from "@/components/ActiveStatus";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600", "800"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <AuthProvider>
           <ToasterProvider />
+          <ActiveStatus />
           {children}
         </AuthProvider>
       </body>

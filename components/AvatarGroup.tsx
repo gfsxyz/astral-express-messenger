@@ -26,6 +26,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({ users = [] }) => {
           <Image
             alt="user avatar"
             fill
+            sizes="(max-width: 2.75rem) 100vw"
             src={user?.image || "/images/default-pfp.png"}
           />
         </div>
