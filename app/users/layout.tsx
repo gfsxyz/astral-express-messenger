@@ -10,7 +10,6 @@ const UserLayout = async ({ children }: { children: React.ReactNode }) => {
         <UserList items={users} />
         {children}
       </div>
-      ;
     </Sidebar>
   );
 };

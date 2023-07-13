@@ -25,7 +25,7 @@ const Avatar: React.FC<AvatarProps> = ({ user }) => {
         />
       </div>
       {isActive && (
-        <span className="absolute top-0 right-0 block w-2 h-2 bg-green-500 rounded-full ring-2 ring-white md:h-3 md:w-3" />
+        <span className="absolute block w-1 h-1 bg-green-500 rounded-full top-[3px] right-[2px] ring-1 ring-white md:h-2 md:w-2" />
       )}
     </div>
   );

@@ -7,3 +7,39 @@ body,
 :root {
   height: 100%;
 }
+
+#chat-body {
+  scrollbar-width: thin;
+  scrollbar-color: #b3b3b3 #c8d1d2;
+}
+
+/* Chrome, Edge and Safari */
+#chat-body::-webkit-scrollbar {
+  width: 5px;
+  width: 5px;
+}
+#chat-body::-webkit-scrollbar-track {
+  border-radius: 11px;
+  background-color: #c8d1d2;
+}
+
+#chat-body::-webkit-scrollbar-track:hover {
+  background-color: #acacac;
+}
+
+#chat-body::-webkit-scrollbar-track:active {
+  background-color: #acacac;
+}
+
+#chat-body::-webkit-scrollbar-thumb {
+  border-radius: 11px;
+  background-color: #e6e6e6;
+}
+
+#chat-body::-webkit-scrollbar-thumb:hover {
+  background-color: #e6e6e6;
+}
+
+#chat-body::-webkit-scrollbar-thumb:active {
+  background-color: #ffffff;
+}

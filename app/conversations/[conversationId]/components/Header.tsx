@@ -21,7 +21,6 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
 
   const { members } = useActiveList();
   const isActive = members.indexOf(otherUser?.email!) !== -1;
-  console.log(members);
 
   const statusText = useMemo(() => {
     if (conversation.isGroup) {
@@ -38,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
         isOpen={drawerOpen}
         onClose={() => setDrawerOpen(false)}
       />
-      <div className="flex items-center justify-between w-full px-4 py-3 bg-white border-b shadow-sm sm:px-4 lg:px-6">
+      <div className="flex items-center justify-between w-full px-4 py-3 border-t border-r shadow-sm rounded-tr-3xl border-white/40 bg-black/40 sm:px-4 lg:px-6">
         <div className="flex items-center gap-3">
           <Link
             href={"/conversations"}
@@ -52,17 +51,21 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
             <Avatar user={otherUser} />
           )}
           <div className="flex flex-col">
-            <div>{conversation.name || otherUser.name}</div>
-            <div className="text-xs font-light text-neutral-500">
+            <div className="text-white">
+              {conversation.name || otherUser.name}
+            </div>
+            <div className="text-xs font-light text-neutral-300">
               {statusText}
             </div>
           </div>
         </div>
-        <HiEllipsisHorizontal
-          size={32}
-          onClick={() => setDrawerOpen(true)}
-          className="transition cursor-pointer text-coklat hover:opacity-80"
-        />
+        <div className="transition bg-gray-100 rounded-full cursor-pointer text-coklat hover:opacity-80">
+          <HiEllipsisHorizontal
+            size={32}
+            onClick={() => setDrawerOpen(true)}
+            className="rounded-full ring-2 ring-white"
+          />
+        </div>
       </div>
     </>
   );

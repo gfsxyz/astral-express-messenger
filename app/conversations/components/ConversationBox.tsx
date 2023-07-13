@@ -59,8 +59,8 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
     <div
       onClick={handleClick}
       className={twMerge(
-        "w-full relative flex items-center space-x-3 p-3 hover:bg-neutral-100 rounded-lg transition cursor-pointer",
-        selected ? "bg-neutral-100" : "bg-white"
+        "w-full relative flex items-center space-x-3 p-3 hover:bg-neutral-100 rounded-sm transition cursor-pointer border-b border-gray-600/20 group",
+        selected && "bg-neutral-100"
       )}
     >
       {data.isGroup ? (
@@ -71,11 +71,16 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
       <div className="flex-1 min-w-0">
         <div className="focus:outline-none">
           <div className="flex items-center justify-between mb-1">
-            <p className="text-sm font-semibold truncate text-coklat max-w-[140px]">
+            <p
+              className={twMerge(
+                "text-sm font-semibold truncate text-white max-w-[140px] group-hover:text-coklat",
+                selected && "text-coklat"
+              )}
+            >
               {data.name || otherUser.name}
             </p>
             {lastMessage?.createdAt && (
-              <p className="text-sm font-light text-gray-400">
+              <p className="text-xs font-light text-gray-400">
                 {format(new Date(lastMessage.createdAt), "p")}
               </p>
             )}
@@ -83,7 +88,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
           <p
             className={twMerge(
               "truncate text-sm font-light",
-              hasSeen ? "text-gray-500" : "text-coklat font-medium"
+              hasSeen ? "text-gray-400" : "text-coklat font-medium"
             )}
           >
             {lastMessageText}

@@ -74,11 +74,12 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
             <div className="flex flex-col mt-10 gap-y-8">
               <Input
                 disabled={isLoading}
-                label="name"
+                label="Name"
                 id="name"
                 errors={errors}
                 required
                 register={register}
+                labelColor="text-gray-900"
               />
               <div>
                 <label className="block text-sm font-medium leading-6 text-coklat">

@@ -71,11 +71,12 @@ const GroupChatModal: React.FC<GroupChatModalProps> = ({
             <div className="flex flex-col mt-10 gap-y-8">
               <Input
                 register={register}
-                label="Name"
+                label="Group Name"
                 id="name"
                 disabled={isLoading}
                 required
                 errors={errors}
+                labelColor="text-coklat"
               />
               <Select
                 disabled={isLoading}

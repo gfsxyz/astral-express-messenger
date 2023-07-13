@@ -95,7 +95,7 @@ const AuthForm = () => {
 
   return (
     <div className="mx-2 mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-      <div className="px-4 py-8 bg-white shadow sm:rounded lg sm:px-10">
+      <div className="px-4 py-8 shadow bg-black/30 sm:rounded lg sm:px-10">
         <form
           className="space-y-6"
           onSubmit={handleSubmit(onSubmit)}
@@ -136,11 +136,11 @@ const AuthForm = () => {
         <div className="mt-6">
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-300" />
+              <div className="w-full border-t border-black/30" />
             </div>
 
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 text-gray-500 bg-white">
+              <span className="px-2 text-gray-100 bg-black/30">
                 Or continue with
               </span>
             </div>
@@ -160,13 +160,13 @@ const AuthForm = () => {
           </div>
         </div>
 
-        <div className="flex justify-center gap-2 px-2 mt-6 text-xs text-gray-500">
+        <div className="flex justify-center gap-2 px-2 mt-6 text-xs text-gray-200">
           <div>
             {variant === "LOGIN" ? "New to messenger?" : "Have an account?"}
           </div>
           <div
             onClick={toggleVariant}
-            className="underline cursor-pointer hover:text-coklat"
+            className="underline cursor-pointer hover:text-gray-300"
           >
             {variant === "LOGIN" ? "Create an account" : "Login"}
           </div>

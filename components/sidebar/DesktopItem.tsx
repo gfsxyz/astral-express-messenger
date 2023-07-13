@@ -27,7 +27,7 @@ const DesktopItem: React.FC<DesktopItemProps> = ({
       <Link
         href={href}
         className={twMerge(
-          "group flex gap-x-3 rounded-md p-3 text-sm leading-6 font-semibold text-abu hover:text-coklat hover:bg-gray-100",
+          "group flex gap-x-3 rounded-md p-3 text-sm leading-6 font-semibold text-terang hover:text-coklat hover:bg-gray-100",
           active && "bg-gray-100 text-coklat"
         )}
       >

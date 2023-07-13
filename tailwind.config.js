@@ -12,6 +12,7 @@ module.exports = {
         hitam: "#222020",
         coklat: "#3C2525",
         primary: "#D3B88A",
+        terang: "#f8e5c5",
       },
     },
   },

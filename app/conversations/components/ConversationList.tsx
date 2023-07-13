@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { MdOutlineGroupAdd } from "react-icons/md";
+import { PiChatsDuotone } from "react-icons/pi";
 import ConversationBox from "./ConversationBox";
 import GroupChatModal from "./GroupChatModal";
 import { User } from "@prisma/client";
@@ -97,18 +98,23 @@ const ConversationList: React.FC<ConversationListProps> = ({
       />
       <aside
         className={twMerge(
-          "fixed inset-y-0 pb-20 lg:pb-0 lg:left-20 lg:w-80 lg:block overflow-y-auto border-r border-gray-200",
+          "fixed inset-y-0 pb-20 lg:pb-0 lg:left-20 lg:w-80 lg:block overflow-y-auto border-r border-gray-500/50 bg-black/30",
           isOpen ? "hidden" : "block w-full left-0"
         )}
       >
         <div className="px-5">
-          <div className="flex justify-between pt-4 mb-4">
-            <div className="text-xl font-bold text-coklat">Messages</div>
-            <div
-              onClick={() => setIsModalOpen(true)}
-              className="p-2 text-gray-600 transition bg-gray-100 rounded-full cursor-pointer hover:opacity-75"
-            >
-              <MdOutlineGroupAdd size={20} />
+          <div className="flex justify-between">
+            <div className="flex items-center gap-x-3">
+              <PiChatsDuotone size={28} className="text-terang" />
+              <div className="py-4 font-semibold text-white">Chats</div>
+            </div>
+            <div className="flex items-center">
+              <div
+                onClick={() => setIsModalOpen(true)}
+                className="p-2 text-gray-600 transition bg-gray-100 rounded-full cursor-pointer hover:opacity-75"
+              >
+                <MdOutlineGroupAdd size={20} />
+              </div>
             </div>
           </div>
           {items.map((item) => (
