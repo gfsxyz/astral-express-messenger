@@ -32,7 +32,7 @@ Astral Expres Messenger\*, Honkai: Star Rail messenger app come to reality, buil
 ### 👥 Clone the repo
 
 ```shell
-$ git clone https://github.com/metkerr/streamget.git
+$ git clone https://github.com/gfsxyz/astral-express-mesengger.git
 ```
 
 ### 📦 Install dependencies
