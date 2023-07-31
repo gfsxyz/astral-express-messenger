@@ -6,7 +6,7 @@ Astral Expres Messenger\*, Honkai: Star Rail messenger app come to reality, buil
 
 ### Screenshot
 
-![Homepage](https://raw.githubusercontent.com/gfsxyz/portofolio-v2/main/assets/images/astral/astral.png?token=GHSAT0AAAAAACD56TP2DPO4SESPWGIYMVKWZGHT3UQ)
+![Homepage](./shot.png)
 
 ### Links
 
